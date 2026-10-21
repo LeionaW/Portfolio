@@ -78,6 +78,7 @@
       gap: 22px;
       font-size: 0.95rem;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .nav a {
@@ -87,6 +88,59 @@
 
     .nav a:hover {
       color: var(--white);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      position: absolute;
+      left: 50%;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      content: "";
+      transform: translateX(-50%);
+      transition: all 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .menu-toggle span {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .menu-toggle span::before {
+      top: -7px;
+    }
+
+    .menu-toggle span::after {
+      top: 7px;
+    }
+
+    .menu-toggle.is-open span {
+      background: transparent;
+    }
+
+    .menu-toggle.is-open span::before {
+      top: 0;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .menu-toggle.is-open span::after {
+      top: 0;
+      transform: translateX(-50%) rotate(-45deg);
     }
 
     .hero {
@@ -334,25 +388,40 @@
         padding-top: 52px;
       }
 
-      .nav {
-        gap: 12px;
-        font-size: 0.8rem;
+      .menu-toggle {
+        display: block;
       }
 
-      .brand {
-        font-size: 1rem;
+      .nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .nav.is-open {
+        display: flex;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        width: 100%;
       }
     }
 
     @media (max-width: 520px) {
       .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
       }
 
       .nav {
         width: 100%;
-        justify-content: flex-start;
       }
 
       .hero-copy p {
@@ -373,10 +442,15 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">Leiona Williams</div>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+      </button>
       <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="cross-sectional.html">Cross-sectional</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -478,5 +552,26 @@
       </div>
     </section>
   </main>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          toggle.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
