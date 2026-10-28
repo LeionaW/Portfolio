@@ -173,24 +173,15 @@
       align-items: center;
     }
 
-    .photo-circle {
+    .profile-photo {
       width: min(300px, 70vw);
       aspect-ratio: 1;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--mint-soft), rgba(255,255,255,0.25));
+      object-fit: cover;
       border: 5px solid rgba(255,255,255,0.9);
       box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--forest-deep);
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      background: #dfeae5;
     }
-
-    .photo-circle::before { content: "LW"; }
 
     main section { padding: 72px 0; }
 
@@ -380,7 +371,7 @@
       .header-inner { flex-direction: row; align-items: center; }
       .nav { width: 100%; }
       .hero-copy p { font-size: 1rem; }
-      .photo-circle { width: min(220px, 72vw); }
+      .profile-photo { width: min(220px, 72vw); }
       .portfolio-card { min-height: 160px; }
     }
   </style>
@@ -413,7 +404,11 @@
       </div>
 
       <div class="hero-image-wrap">
-        <div class="photo-circle" aria-label="Profile placeholder for Leiona Williams"></div>
+        <img
+          class="profile-photo"
+          src="images/profile-photo.jpg"
+          alt="Leiona Williams"
+        />
       </div>
     </div>
   </section>
