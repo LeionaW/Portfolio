@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Regression chart showing uninsured residents and mental distress</title>
+  <desc id="desc">A line chart showing a positive relationship between uninsured residents and mental distress in NYC ZIP codes.</desc>
+  <rect width="1200" height="700" fill="#f2f2f0"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#58656b">
+    <rect x="120" y="80" width="980" height="500" fill="#ffffff" stroke="#d9d9d5" stroke-width="2"/>
+    <line x1="220" y1="560" x2="1040" y2="560" stroke="#666666" stroke-width="3"/>
+    <line x1="220" y1="560" x2="220" y2="140" stroke="#666666" stroke-width="3"/>
+    <path d="M220 500 C330 480, 420 440, 530 420 S770 340, 980 240 S1040 180, 1040 140" fill="none" stroke="#1f4d3a" stroke-width="6" stroke-linecap="round"/>
+
+    <g font-size="22" fill="#58656b">
+      <text x="200" y="600">0</text>
+      <text x="450" y="600">20</text>
+      <text x="700" y="600">40</text>
+      <text x="955" y="600">60</text>
+      <text x="120" y="565">0</text>
+      <text x="100" y="430">20</text>
+      <text x="100" y="300">40</text>
+      <text x="100" y="170">60</text>
+    </g>
+
+    <g font-size="28" fill="#58656b">
+      <text x="460" y="655">Uninsured (%)</text>
+      <text x="18" y="390" transform="rotate(-90 18 390)">Mental distress (%)</text>
+    </g>
+  </g>
+</svg>
